@@ -1,6 +1,8 @@
 package tree;
 
 
+import java.util.Scanner;
+
 public class BinarySearchTree {
         class Node{
             private int value;
@@ -44,6 +46,34 @@ public class BinarySearchTree {
             }
             node.height = 1 + Math.max(height(node.left), height(node.right));
             return node;
+        }
+        private boolean balanced(){
+            return balanced(root);
+        }
+        private boolean balanced(Node node){
+            if(node == null){
+                return true;
+            }
+            return Math.abs(height(node.left)-height(node.right)) <= 1 && balanced(node.left) && balanced(node.right);
+        }
+        private void display(){
+            display(root);
+        }
+        private void display(Node node){
+            display(this.root , "Root Node: ");
+        }
+        private void display(Node node, String details){
+            if(node == null){
+                return;
+            }
+            System.out.println(details + node.value + " ");
+            display(node.left , "left child of " + node.value + " : ");
+            display(node.right, "right child of " + node.value + " : ");
+        }
+        public static void main(String[] args){
+            Scanner sc = new Scanner(System.in);
+            BinarySearchTree tree = new BinarySearchTree();
+
         }
     }
 
