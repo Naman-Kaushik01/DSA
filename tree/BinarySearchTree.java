@@ -31,7 +31,7 @@ public class BinarySearchTree {
             return root == null;
         }
         public void insert(int value){
-
+            root = insert(value, root);
         }
         public Node insert(int value,Node node){
             if(node == null){
@@ -47,6 +47,12 @@ public class BinarySearchTree {
             node.height = 1 + Math.max(height(node.left), height(node.right));
             return node;
         }
+        public void populate(int nums[]){
+            for (int i = 0; i < nums.length; i++){
+                this.insert(nums[i]);
+            }
+        }
+
         private boolean balanced(){
             return balanced(root);
         }
@@ -73,6 +79,10 @@ public class BinarySearchTree {
         public static void main(String[] args){
             Scanner sc = new Scanner(System.in);
             BinarySearchTree tree = new BinarySearchTree();
+            int nums[] = {5,2,7,1,4,6,9,8,3,10};
+            tree.populate(nums);
+
+            tree.display();
 
         }
     }
