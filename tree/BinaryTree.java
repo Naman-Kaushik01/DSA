@@ -80,6 +80,19 @@ public class BinaryTree {
         System.out.print(node.value + " ");
         inOrder(node.right);
     }
+
+    //POSTORDER TRAVERSAL
+    public void postOrder(){
+        preOrder(root);
+    }
+    private void postOrder(Node node){
+        if(node == null){
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.value + " ");
+    }
     private void preOrder(Node node, String indent){}
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
