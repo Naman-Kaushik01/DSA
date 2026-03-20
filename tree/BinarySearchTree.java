@@ -52,6 +52,19 @@ public class BinarySearchTree {
                 this.insert(nums[i]);
             }
         }
+        public void populateSorted(int[] nums){
+            populateSorted(nums , 0 , nums.length);
+        }
+        public void populateSorted(int[] nums , int start , int end){
+            if(start >= end){
+                return;
+            }
+            int mid = start + (end - start)/2;
+            this.insert(nums[mid]);
+            populateSorted(nums , start , mid);
+            populateSorted(nums , mid + 1 , end);
+
+        }
 
         private boolean balanced(){
             return balanced(root);
@@ -80,7 +93,9 @@ public class BinarySearchTree {
             Scanner sc = new Scanner(System.in);
             BinarySearchTree tree = new BinarySearchTree();
             int nums[] = {5,2,7,1,4,6,9,8,3,10};
-            tree.populate(nums);
+            int nums1[] = {1,2,3,4,5,6,7,8,9,10};
+            tree.populateSorted(nums1);
+//            tree.populate(nums);
 
             tree.display();
 
