@@ -83,8 +83,32 @@ public class SegmentTree {
             return this.query(node.left, qsi, qei) + this.query(node.right, qsi, qei);
         }
     }
+
+    //update
+    public void update(int index , int value){
+        this.root.data = update(this.root , index , value);
+    }
+
+    public int update(Node node ,int index , int value){
+        if(index >= node.startInterval && index <= node.endInterval){
+            if (index == node.startInterval && index == node.endInterval){
+                node.data = value;
+                return node.data;
+            }else {
+               int leftAnswer = update(node.left , index , value);
+               int rightAnswer = update(node.right , index , value);
+
+               node.data = leftAnswer + rightAnswer;
+               return node.data;
+            }
+        }
+
+        return node.data;
+    }
+
     public static void  main(String[] args){
         int [] arr = {3, 8, 6, 7, -2, -8, 4, 9};
         SegmentTree tree = new SegmentTree(arr);
+        tree.display();
     }
 }
