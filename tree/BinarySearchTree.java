@@ -1,6 +1,4 @@
 package tree;
-
-
 import java.util.Scanner;
 
 public class BinarySearchTree {
