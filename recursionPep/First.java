@@ -7,8 +7,9 @@ public class First {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
         int n = sc.nextInt();
-        printDecreasing(n);
-        printIncreasing(n);
+       // printDecreasing(n);
+        //printIncreasing(n);
+        printIncreasingAndDecreasing(n);
     }
     //printing n to 0
     public static void printDecreasing(int n){
@@ -27,6 +28,18 @@ public class First {
         printIncreasing(n-1);
        System.out.println("Increasing Order -> " + n);
     }
+
+    //printing increasing and decreasing in same function
+
+    public static void printIncreasingAndDecreasing(int n){
+        if (n == 0) {
+            return;
+        }
+        System.out.println("Decreasing Order -> " +n);
+        printIncreasingAndDecreasing(n-1);
+        System.out.println("Increasing Order -> " + n);
+    }
+
 
 
 }
