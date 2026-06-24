@@ -8,14 +8,26 @@ public class First {
         System.out.print("Enter a number: ");
         int n = sc.nextInt();
         printDecreasing(n);
+        printIncreasing(n);
     }
+    //printing n to 0
     public static void printDecreasing(int n){
         if (n == 0) {
             return;
         }
-        System.out.println(n);
+        System.out.println("Decreasing Order -> " +n);
         printDecreasing(n-1);
     }
+
+    //printing 1 to n
+    public static void printIncreasing(int n){
+       if (n == 0) {
+           return;
+       }
+        printIncreasing(n-1);
+       System.out.println("Increasing Order -> " + n);
+    }
+
 
 }
 
