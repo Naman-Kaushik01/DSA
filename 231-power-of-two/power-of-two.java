@@ -2,16 +2,8 @@ class Solution {
     public boolean isPowerOfTwo(int n) {
         
         if(n <= 0) return false;
-        int count = 0;
-        while(n != 0){
-            if((n & 1) == 1){
-                count ++;   
-            }
-            n >>= 1;
-        }
-
-        return count == 1;
-
+        if((n & n-1) == 0) return true;
+        return false;
 
           /*
         explanation : we have to count set bit , for every integer
