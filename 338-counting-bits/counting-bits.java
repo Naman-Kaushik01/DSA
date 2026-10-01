@@ -1,9 +1,18 @@
 class Solution {
     public int[] countBits(int n) {
-        int [] ans = new int[n+1];
+        int ans[] = new int[n+1];
+        
         for(int i = 0; i <= n; i++){
-            ans[i] = ans[i >> 1] + (i & 1);
+            int val = 0;
+            int num = i;
+            while(num != 0){
+                if((num & 1) == 1) val++;
+                num >>= 1;
+            }
+            ans[i] = val;
         }
         return ans;
+
+        // simple o to n tak ke saare digits ka set bit count karke array me store kar rhe hain
     }
 }
