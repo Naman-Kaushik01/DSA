@@ -2,14 +2,8 @@ class Solution {
     public int[] countBits(int n) {
         int ans[] = new int[n+1];
         
-        for(int i = 0; i <= n; i++){
-            int val = 0;
-            int num = i;
-            while(num != 0){
-                if((num & 1) == 1) val++;
-                num >>= 1;
-            }
-            ans[i] = val;
+        for(int i = 1; i <= n; i++){
+            ans[i] = ans[i & (i-1)] + 1;
         }
         return ans;
 
