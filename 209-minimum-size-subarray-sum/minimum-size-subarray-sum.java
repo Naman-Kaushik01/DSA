@@ -14,7 +14,6 @@ class Solution {
             }
         }
         // if sum will not equal to target the ans value will not update
-        if(ans == Integer.MAX_VALUE ) return 0;
-        return ans;
+        return(ans == Integer.MAX_VALUE ) ? 0 : ans ;
     }
 }
