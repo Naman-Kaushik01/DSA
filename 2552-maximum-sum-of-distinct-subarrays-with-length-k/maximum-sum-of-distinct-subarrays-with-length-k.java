@@ -1,32 +1,27 @@
 class Solution {
     public long maximumSubarraySum(int[] nums, int k) {
-        HashSet<Integer> set = new HashSet<>();
         long sum = 0;
         long maxSum = 0;
-
+        HashMap<Integer , Integer> map = new HashMap<>();
         int left = 0;
-        for(int right = 0; right < nums.length;  right++){
-            //step 1: check duplicate
-            while(set.contains(nums[right])){
-                set.remove(nums[left]);
-                sum -= nums[left];
-                left++;
-            }
-            // step 2: if not duplicate then add to set and calculate sum
-            set.add(nums[right]);
+        int right = 0;
+        while(right < nums.length){
             sum += nums[right];
+            map.put(nums[right] , map.getOrDefault(nums[right] , 0) + 1);
 
-            // step 3: maintain window size of k
-            while(right - left + 1 > k){
-                set.remove(nums[left]);
+            if((right - left +1) == k){
+                if(map.size() == k){
+                    maxSum = Math.max(sum , maxSum);
+                }
+
                 sum -= nums[left];
+                map.put(nums[left] , map.get(nums[left])-1);
+                if(map.get(nums[left]) == 0){
+                    map.remove(nums[left]);
+                }
                 left++;
             }
-
-            // when window size == k
-            if(right - left + 1 == k){
-                maxSum = Math.max(sum , maxSum);
-            }
+            right++;
         }
         return maxSum;
     }
