@@ -3,7 +3,7 @@ class Solution {
         int low = 1;
         int high = 0;
         for(int i = 0; i < bloomDay.length; i++){
-            //low = Math.min(low , bloomDay[i]);
+            low = Math.min(low , bloomDay[i]);
             high = Math.max(high, bloomDay[i]);
         }
 
