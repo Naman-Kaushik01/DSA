@@ -4,6 +4,9 @@ class Solution {
         if(n == 0 || n == 1){
             return n;
         }
-        return fib(n-1) + fib(n-2);
+        
+        int prev1 = fib(n-1);
+        int prev2 = fib(n-2);
+        return prev1 + prev2;
     }
 }
