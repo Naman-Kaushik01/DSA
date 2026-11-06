@@ -12,13 +12,14 @@ class Solution {
                 right --;
             }
 
-            // now they are vowels : swap them
             char temp = ch[left];
             ch[left] = ch[right];
             ch[right] = temp;
+
             left++;
             right--;
         }
+
         return String.valueOf(ch);
     }
     public boolean isVowel(char c){
